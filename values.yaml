@@ -12,6 +12,23 @@ kube-prometheus-stack:
           kubernetes_sd_configs:
             - role: service
 
+          ## https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus-kubernetes.yml
+          ## this will scrape every service which has the following annotations
+          ## spring.io/scrape: 'true'
+          ## spring.io/metric_path: '/actuator/prometheus'
+          ## the neat thing is that every k8s component can define the metrics endpoint by itself.
+          ## also it can define if it likes to be scraped or not
+          ## sample config of a service:
+          ## kind: Service
+          ## metadata:
+          ##  name: some-service-name
+          ##  labels:
+          ##    name: some-name
+          ##  annotations:
+          ##    prometheus.io/scrape: 'true'
+          ##    prometheus.io/port: '8080'
+          ##    spring.io/scrape: 'true'
+          ##    spring.io/metric_path: '/actuator/prometheus'
           relabel_configs:
           - action: replace
             source_labels: [ __meta_kubernetes_service_annotation_spring_io_metric_path ]
