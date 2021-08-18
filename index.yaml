@@ -1,0 +1,18 @@
+apiVersion: v1
+entries:
+  prometheus-spring:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-08-18T07:32:30.40986593Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 18.0.0
+    description: Helm chart for scraping spring applications
+    digest: c861fcd9202cf940324b5b79a9577b73927e1f31547293a4f465e82392218f39
+    name: prometheus-spring
+    type: application
+    urls:
+    - https://github.com/jwindhaber/helm-prometheus-spring/releases/download/prometheus-spring-0.1.0/prometheus-spring-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-08-18T07:32:30.11271211Z"
